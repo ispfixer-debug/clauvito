@@ -132,8 +132,7 @@ fun VitoButton(
         } else {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
-                contentPadding = PaddingValues(horizontal = VitoSpacing.sm)
+                horizontalArrangement = androidx.compose.foundation.layout.Arrangement.Center
             ) {
                 if (leadingIcon != null) {
                     Icon(

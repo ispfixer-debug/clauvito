@@ -2,6 +2,7 @@ package com.vito.design
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
@@ -9,11 +10,19 @@ import androidx.compose.ui.unit.dp
  * Per DESIGN.md §7
  */
 object VitoShapes {
-    val extraSmall = RoundedCornerShape(4.dp)  // chips, badges
-    val small = RoundedCornerShape(8.dp)          // input fields, small cards
-    val medium = RoundedCornerShape(12.dp)         // cards, list items
-    val large = RoundedCornerShape(16.dp)         // bottom sheets, modals
-    val extraLarge = RoundedCornerShape(24.dp)      // hero cards, FABs
+    // Corner radius values as Dp
+    val extraSmall: Dp = 4.dp
+    val small: Dp = 8.dp
+    val medium: Dp = 12.dp
+    val large: Dp = 16.dp
+    val extraLarge: Dp = 24.dp
+
+    // Pre-created shapes (non-composable)
+    val extraSmallShape = RoundedCornerShape(extraSmall)
+    val smallShape = RoundedCornerShape(small)
+    val mediumShape = RoundedCornerShape(medium)
+    val largeShape = RoundedCornerShape(large)
+    val extraLargeShape = RoundedCornerShape(extraLarge)
 
     // Bottom sheet specific (rounded top corners only)
     val bottomSheet = RoundedCornerShape(
@@ -25,10 +34,10 @@ object VitoShapes {
 
     // M3 Shapes mapping
     val material3 = Shapes(
-        extraSmall = extraSmall,
-        small = small,
-        medium = medium,
-        large = large,
-        extraLarge = extraLarge
+        extraSmall = extraSmallShape,
+        small = smallShape,
+        medium = mediumShape,
+        large = largeShape,
+        extraLarge = extraLargeShape
     )
 }

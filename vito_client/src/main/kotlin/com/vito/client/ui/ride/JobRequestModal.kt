@@ -62,7 +62,7 @@ fun JobRequestModal(
                 // Job Type Chip
                 AssistChip(
                     onClick = { },
-                    label = { Text(jobType.upperercase()) },
+                    label = { Text(jobType.uppercase()) },
                     colors = AssistChipDefaults.assistChipColors(
                         containerColor = VitoColors.primaryAccentSubtle,
                         labelColor = VitoColors.primaryAccent

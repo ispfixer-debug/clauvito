@@ -7,7 +7,12 @@ import android.os.Build
 import android.os.IBinder
 import android.os.Looper
 import androidx.core.app.NotificationCompat
-import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+
 import com.vito.driver.ui.home.DriverHomeActivity
 
 /**
@@ -40,10 +45,11 @@ class LocationUpdateService : Service() {
     }
 
     private fun startLocationUpdates() {
-        val locationRequest = LocationRequest.Builder(
-            Priority.PRIORITY_HIGH_ACCURACY,
-            LOCATION_INTERVAL
-        ).setMinUpdateIntervalMillis(FASTEST_INTERVAL).build()
+        // Using old location API for compatibility
+        val locationRequest = LocationRequest()
+        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        locationRequest.interval = LOCATION_INTERVAL
+        locationRequest.fastestInterval = FASTEST_INTERVAL
 
         try {
             fusedLocationClient.requestLocationUpdates(

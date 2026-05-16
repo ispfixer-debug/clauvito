@@ -28,22 +28,22 @@ import com.vito.design.VitoSpacing
 fun VitoCard(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable () -> Unit
 ) {
     val backgroundColor = VitoColors.backgroundTertiary
     val borderColor = VitoColors.borderSubtle
 
     Box(
         modifier = modifier
-            .clip(RoundedCornerShape(VitoShapes.medium))
-            .background(backgroundColor, RoundedCornerShape(VitoShapes.medium))
+            .clip(VitoShapes.mediumShape)
+            .background(backgroundColor, VitoShapes.mediumShape)
             .then(
                 if (borderColor != Color.Transparent) Modifier
-                    .background(borderColor.copy(alpha = 1f), RoundedCornerShape(VitoShapes.medium))
+                    .background(borderColor.copy(alpha = 1f), VitoShapes.mediumShape)
                     .padding(1.dp)
                 else Modifier
             )
-            .clip(RoundedCornerShape(VitoShapes.medium))
+            .clip(VitoShapes.mediumShape)
             .then(
                 if (onClick != null) Modifier.clickable(
                     role = Role.Button,
@@ -78,8 +78,8 @@ fun VitoStatusChip(
 
     Box(
         modifier = modifier
-            .clip(RoundedCornerShape(VitoShapes.extraSmall))
-            .background(backgroundColor, RoundedCornerShape(VitoShapes.extraSmall))
+            .clip(VitoShapes.extraSmallShape)
+            .background(backgroundColor, VitoShapes.extraSmallShape)
             .padding(horizontal = VitoSpacing.sm, vertical = VitoSpacing.xxs)
     ) {
         Text(

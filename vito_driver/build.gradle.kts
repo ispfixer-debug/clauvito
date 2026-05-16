@@ -1,11 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.serialization)
-    alias(libs.plugins.about.libraries)
 }
 
 android {
@@ -47,15 +45,19 @@ android {
 
     kotlinOptions {
         jvmTarget = "17"
-        freeCompilerArgs += [
+        freeCompilerArgs = listOf(
             "-opt-in=kotlinx.coroutines.DebugMetadata",
             "-opt-in=kotlin.RequiresOptIn"
-        ]
+        )
     }
 
     buildFeatures {
         compose = true
         buildConfig = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
 
     packaging {
@@ -86,17 +88,17 @@ dependencies {
     implementation(libs.androidx.security)
     implementation(libs.androidx.multidex)
 
-    // Supabase
-    implementation(libs.supabase.kt)
-    implementation(libs.supabase.gotrue)
-    implementation(libs.supabase.realtime)
-    implementation(libs.supabase.storage)
-    implementation(libs.supabase.postgrest)
-    implementation(libs.supabase.functions)
+    // Supabase (disabled - not in Maven)
+    // implementation(libs.supabase.kt)
+    // implementation(libs.supabase.gotrue)
+    // implementation(libs.supabase.realtime)
+    // implementation(libs.supabase.storage)
+    // implementation(libs.supabase.postgrest)
+    // implementation(libs.supabase.functions)
 
-    // Stripe
-    implementation(libs.stripe.android)
-    implementation(libs.stripe.identity)
+    // Stripe (disabled - not in Maven)
+    // implementation(libs.stripe.android)
+    // implementation(libs.stripe.identity)
 
     // Firebase
     implementation(platform(libs.firebase.bom))

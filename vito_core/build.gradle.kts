@@ -25,7 +25,12 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
         compose = true
+    }
+    
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
 }
 
@@ -43,13 +48,13 @@ dependencies {
     implementation(libs.androidx.datastore)
     implementation(libs.androidx.security)
 
-    // Supabase
-    implementation(libs.supabase.kt)
-    implementation(libs.supabase.gotrue)
-    implementation(libs.supabase.realtime)
-    implementation(libs.supabase.storage)
-    implementation(libs.supabase.postgrest)
-    implementation(libs.supabase.functions)
+    // Supabase Temporarily Disabled
+    // implementation(libs.supabase.kt)
+    // implementation(libs.supabase.gotrue)
+    // implementation(libs.supabase.realtime)
+    // implementation(libs.supabase.storage)
+    // implementation(libs.supabase.postgrest)
+    // implementation(libs.supabase.functions)
 
     // Room
     implementation(libs.room.runtime)
